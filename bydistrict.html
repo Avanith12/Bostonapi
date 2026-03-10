@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Boston Shootings – District & Offense</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <h1>Boston Shootings</h1>
+
+  <h2>Chart 1: By district</h2>
+  <div id="chart1" style="width:100%; height:400px;"></div>
+
+  <h2>Chart 2: By offense type (top 10)</h2>
+  <div id="chart2" style="width:100%; height:450px;"></div>
+
+  <script>
+    // Chart 1: districts
+    var districts = ['B3', 'B2', 'C11', 'E13', 'E18', 'D4', 'C6', 'E5', 'A1', 'D14', 'A7', 'A15', 'External'];
+    var counts = [419, 413, 333, 117, 110, 85, 60, 56, 40, 40, 28, 16, 3];
+    var trace1 = { x: districts, y: counts, type: 'bar' };
+    Plotly.newPlot('chart1', [trace1], {});
+
+    // Chart 2: offense names and counts 
+    var offenseNames = [
+      'INVESTIGATE PROPERTY',
+      'ASSAULT - AGGRAVATED',
+      'BALLISTICS EVIDENCE/FOUND',
+      'VANDALISM',
+      'INVESTIGATE PERSON',
+      'MURDER, NON-NEGLIGENT MANSLAUGHTER',
+      'WEAPON VIOLATION - CARRY/ POSSESSING/ SALE/ TRAFFICKING/ OTHER',
+      'ROBBERY',
+      'SICK/INJURED/MEDICAL - POLICE',
+      'DEATH INVESTIGATION'
+    ];
+    var offenseCounts = [633, 331, 278, 162, 107, 57, 36, 17, 9, 8];
+    var trace2 = { x: offenseCounts, y: offenseNames, type: 'bar', orientation: 'h' };
+    Plotly.newPlot('chart2', [trace2], { margin: { l: 320 } });
+  </script>
+</body>
+</html>
